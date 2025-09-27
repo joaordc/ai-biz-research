@@ -1,0 +1,90 @@
+research_task:
+  description: >
+    Conduct a comprehensive investigation into the {topic}, with a specific focus 
+    on {sub-topic}. Your primary objective is to gather the most recent and 
+    relevant data available, considering the current year is {current_year}. 
+    Focus on market trends, emerging technologies, and publicly expressed customer 
+    and market pain points. Some fraction of the data should be new and underexplored. 
+    Data should be from diverse and reliable sources.
+  expected_output: >
+    A detailed research report in markdown format called research.md. The report must include distinct 
+    sections for Key Market Trends, Emerging Technologies and a list of 10-15 documented Customer Pain Points, 
+    with links to all primary sources. This should act as a support document to the analyst 
+    to identify new opportunities. It must be human-readable, including line breaks.
+  agent: researcher
+  markdown: true
+  output_file: research.md
+  
+analyzing_task:
+  description: >
+    Analyze the provided research report to synthesize its findings into actionable 
+    business concepts. Cross-reference the identified customer pain points with the 
+    emerging technologies to ideate innovative solutions. Your goal is to identify 
+    underexplored niches at the intersection of market need. If the research is 
+    shallow or insufficient, or if some more data is needed to complete the thesis, 
+    delegate a research task back, asking for a complementary research looking for more 
+    details and data related to your chain of thought.
+  expected_output: >
+    A list of 3-5 distinct startup opportunities. Each opportunity must be 
+    presented in a structured format: 
+    - **Concept Title:** A clear, concise name for the idea. 
+    - **One-Sentence Pitch:** A single sentence summarizing the core value proposition. 
+    - **Problem Solved:** A brief explanation of which customer pain point it addresses. 
+    - **Key Technology:** The primary technology that enables this solution. 
+  agent: analyst
+
+validating_task:
+  description: >
+    Perform a rigorous pre-mortem and validation audit on the proposed startup 
+    opportunities. For each concept, critically assess its viability from multiple 
+    angles: market risk, technical feasibility, potential for scalability, and 
+    defensibility. Your analysis must be objective and ruthless, aiming to identify 
+    potential points of failure. 
+    In case the idea is not satisfying, the task must be 
+    delegated to be analyzed again, considering the points of failure you identified.
+  expected_output: >
+    A validation report that scores each opportunity on a scale of 1-10 across 
+    Market Fit, Innovation Potential, and Feasibility. The report must include a 
+    detailed rationale for each score and conclude with a definitive recommendation 
+    for the single most promising and resilient concept.
+  agent: red_team
+
+checking_market_task:
+  description: >
+    Search and conduct a focused competitive analysis for already validated ideas. 
+    Your mission is to determine if an idea or a very similar one is already implemented in the market. 
+    Identify both direct and indirect competitors. 
+    In case the idea is already implemented in a satisfying way in the market and would 
+    be hard to improve, delegate a task back for further analysis, considering the points of
+    similarity you gathered. 
+  expected_output: >
+    A concise competitive analysis report containing:
+    1. A list of the top competitors.
+    2. A brief analysis of their strengths and weaknesses.
+    3. A final verdict on whether the validated idea possesses a unique, defensible 
+       value proposition in the current market of {current_year}.
+  agent: red_team
+
+writing_task:
+  description: >
+    Compile all preceding analyses into a final, polished, and meticulously detailed
+    document called report.md. The document should tell a clear and compelling story, from initial 
+    market discovery to the final, validated business opportunities, including all detailes gathered 
+    in the process. 
+    The tone should be suitable for an entrepeneur looking for new opportunities and include references for every 
+    single sentence that includes data. Omit sources based on general knowledge.
+    The document has no limit of size and can be as big as necessary, in order to include all gathered
+    information.
+  expected_output: >
+    A professional, consulting-based report in markdown format. The report must be well-structured with the following sections:
+    - Executive Summary;
+    - The Market Opportunity (based on {topic} and {sub-topic});
+    - Identified Problems;
+    - Solution Ideas (A full paragraph for each, describing and explaining their innovations and features,
+    and which problems they address);
+    - Competitive Landscape (and how each one of the proposed ideas differentiate);
+    - Why Now? (A concluding argument for why this idea is timely in {current_year})
+    It must be human-readable, including line breaks.
+  agent: writer
+  markdown: true
+  output_file: report.md
