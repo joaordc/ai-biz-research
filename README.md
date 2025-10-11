@@ -1,22 +1,28 @@
-# AIbiz Reseach
+# AIBiz Research
 
-Welcome to the AIBiz Research project (short for AI Business Research), powered by [crewAI](https://crewai.com). This multi-agent AI system aims to help entrepeneurs and hackthon participants quickly gather relevant market information and pre-validated ideas during their first hours of brainstorming. 
+<div style="text-align: center;">
+    <img src="aibiz.png" width="600" alt="Project's Logo">
+</div>
+
+## Introduction
+
+Welcome to the AIBiz Research repo (short for AI Business Research), powered by [crewAI](https://crewai.com). This multi-agent AI system aims to help entrepeneurs and hackathon participants quickly gather relevant information and pre-validated ideas to support their first hours of brainstorming. It's very straightforward: you choose a topic and a subtopic, and the AI crew will search, analyze, validate and structure market data and potential ideas for you. 
 
 ## Installation
 
-Ensure you have Python >=3.10 <3.14 installed on your system. This project uses [UV](https://docs.astral.sh/uv/) for dependency management and package handling, offering a seamless setup and execution experience.
+Ensure you have Python >=3.10 <3.14 installed on your system.
 
-First, if you haven't already, install uv:
+First, if you haven't already, install [uv](https://docs.astral.sh/uv/):
 
 ```bash
-pip install uv
+$ pip install uv
 ```
 
 Next, navigate to your project directory and install the dependencies:
 
 (Optional) Lock the dependencies and install them by using the CLI command:
 ```bash
-crewai install
+$ crewai install
 ```
 ### Setting up 
 
@@ -25,15 +31,18 @@ Before running the project, you need to set up your environment variables. Creat
 - `GEMINI_API_KEY`, or the model equivalent api key
 - `SERPER_API_KEY`: Set it up for free at the [Serper website](https://serper.dev/).
 
+For more information in setting up the LLM model and LLM API keys, check out the [crewAI documentation](https://docs.crewai.com/en/concepts/llms).
 
-For more information in setting up the LLM model and LLM API keys, check the [crewAI documentation](https://docs.crewai.com/en/concepts/llms).
+## Running 
 
-## Running the Project
-
-To kickstart your crew of AI agents and begin task execution, run this from the root folder of your project:
+At the root folder, run:
 
 ```bash
 $ crewai run
 ```
 
-This project will run and, as a final result, will create a `research.md` file and a `report.md` file. 
+Note: This is a complex workflow and may take 2-3min to execute entirely. Time can vary since agents validate and delegate tasks to each other, so as to achieve their best work.
+
+As a final result, two files will be created at the root folder:
+- `research.md` is an overview of the market and the foundation of the research;
+- `report.md` is the final document containing the business opportunities identified and the rational of they are promising, including a parallel comparison to the current market landscape. 
