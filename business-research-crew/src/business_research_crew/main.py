@@ -12,9 +12,17 @@ def run():
     """
     Run the crew.
     """
+
+    print('-----------------------------------------------------------')
+    print("|               Welcome to AI Biz Research!               |")
+    print('-----------------------------------------------------------\n')
+    topic = input("Insert a topic: ")
+    subtopic = input("Insert a subtopic: ")
+    print("Great. Starting a research about ", topic, ", focusing on ", subtopic)
+
     inputs = {
-        'topic': 'Blockchain and web3',
-        'sub-topic': 'Stablecoins',
+        'topic': topic,
+        'sub-topic': subtopic,
         'current_year': str(datetime.now().year)
     }
     

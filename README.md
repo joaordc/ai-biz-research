@@ -45,4 +45,4 @@ Note: This is a complex workflow and may take 2-3min to execute entirely. Time c
 
 As a final result, two files will be created at the root folder:
 - `research.md` is an overview of the market and the foundation of the research;
-- `report.md` is the final document containing the business opportunities identified and the rational of they are promising, including a parallel comparison to the current market landscape. 
+- `report.md` is the final document containing the business opportunities identified and the rational of why they are promising, including a parallel comparison to the current market landscape. 
